@@ -1,15 +1,21 @@
-function startGame(playerChoice) {
-  //generates numbers between 0 to 2
-  const options = ["Rock", "Paper", "Scissors"];
-  const cpu = Math.floor(Math.random() * Math.floor(3));
-  document.getElementById(
-    "player"
-  ).innerHTML = `You chose ${options[playerChoice]}`;
+var player;
+var cpu;
+const options = ["Rock", "Paper", "Scissors"];
+
+function cpuChoice() {
+  return Math.floor(Math.random() * Math.floor(3));
+}
+
+function printChoice() {
+  document.getElementById("player").innerHTML = `You chose ${options[player]}`;
   document.getElementById("cpu").innerHTML = `CPU chose ${options[cpu]}`;
+}
+
+function checkWinner() {
   if (
-    (playerChoice === 0 && cpu === 2) ||
-    (playerChoice === 1 && cpu === 2) ||
-    (playerChoice === 2 && cpu === 1)
+    (player === 0 && cpu === 2) ||
+    (player === 1 && cpu === 2) ||
+    (player === 2 && cpu === 1)
   ) {
     document.getElementById("outcome").innerHTML = "You win!!!";
   } else if (playerChoice === cpu) {
@@ -17,4 +23,11 @@ function startGame(playerChoice) {
   } else {
     document.getElementById("outcome").innerHTML = "CPU wins.";
   }
+}
+
+function main(playerChoice) {
+  cpu = cpuChoice();
+  player = playerChoice;
+  printChoice();
+  checkWinner();
 }
