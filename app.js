@@ -14,11 +14,11 @@ function printChoice() {
 function checkWinner() {
   if (
     (player === 0 && cpu === 2) ||
-    (player === 1 && cpu === 2) ||
+    (player === 1 && cpu === 0) ||
     (player === 2 && cpu === 1)
   ) {
     document.getElementById("outcome").innerHTML = "You win!!!";
-  } else if (playerChoice === cpu) {
+  } else if (player === cpu) {
     document.getElementById("outcome").innerHTML = "It's a tie.";
   } else {
     document.getElementById("outcome").innerHTML = "CPU wins.";
